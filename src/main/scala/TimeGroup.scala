@@ -45,7 +45,7 @@ object TimeGroup extends App {
   def grouped: List[List[Utx]] = {
     val builder = List.newBuilder[List[Utx]]
     def calc(lis: List[Utx]): (List[Utx], List[Utx]) = {
-      // 需要确保`lis`是倒序排列的。
+      // 需确保`lis`是倒序排列的。
       val max = lis.head //.maxBy(_.time)
       var buf = Nil.asInstanceOf[List[Utx]]
       lis.span { u =>
@@ -68,7 +68,7 @@ object TimeGroup extends App {
         loop(l2)
       }
     }
-    // 倒序排列，以便于后续的`lis.span()`。
+    // 需确保倒序排列，以便于后续的`lis.span()`。
     loop(list.sortBy(_.time).reverse)
   }
 
