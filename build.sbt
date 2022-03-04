@@ -7,3 +7,7 @@ lazy val root = (project in file("."))
     name := "scala-test",
     idePackagePrefix := Some("hobby.chenai.nakam.test")
   )
+
+libraryDependencies ++= Seq {
+  "org.scala-graph" %% "graph-core" % "1.13.4"
+}
