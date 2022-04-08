@@ -6,3 +6,5 @@ project/project
 
 *.class
 *.log
+
+cross_process_state_mgr_test

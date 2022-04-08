@@ -59,7 +59,7 @@ object GraphTopo extends App {
 //  topological sort (by component):
 //  Right(TopologicalOrder(A, B2, B1, B3, C3, C1, C2, D3, D1, D2))
 
-  val g = Graph(root ~> "B1", root ~> "B2", root ~> "B3",
+  val g = Graph(root ~> "B1", root ~> "B2", root ~> "B3", root ~> "e",
                 "B3" ~> "C2", "B1" ~> "C1", "B3" ~> "C3", "B2" ~> "C2", "B3" ~> "C1", "B2" ~> "C3",
                 "B3" ~> "D2", "C2" ~> "D2", "C1" ~> "D2", "C2" ~> "D1", "C3" ~> "D3", "B1" ~> "D1", "C1" ~> "C2")
 
@@ -82,7 +82,7 @@ object GraphTopo extends App {
 
   // format: on
 
-  (g get "B1").topologicalSort(true).fold(
+  (g get "B1").topologicalSort().fold(
     cycleNode => println("cycle node:" + cycleNode),
     _.toLayered foreach println
   )
